@@ -15,12 +15,10 @@ function Todo() {
   const loading = useSelector((state) => state.loading);
   const error = useSelector((state) => state.error);
 
-  // load todolist from db
   useEffect(() => {
     dispatch(load());
   }, [dispatch]);
 
-  // delete task
   async function deleteTaskFunc(e) {
     const { id } = e.target;
     e.preventDefault();
@@ -32,7 +30,6 @@ function Todo() {
     dispatch(deleteTask(id));
   }
 
-  // complete task
   async function checkTask(e) {
     const { id, checked } = e.target;
     await fetch('/api/todos', {

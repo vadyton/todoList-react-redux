@@ -9,7 +9,6 @@ import {
   LOADING_FAILED,
 } from './action-types';
 
-// action creators
 export function addTask(taskName, id) {
   return {
     type: ADD_TASK,
@@ -69,7 +68,6 @@ export function editTask(id, taskName) {
   };
 }
 
-// thunk middleware
 export function load() {
   return async (dispatch) => {
     dispatch(loadingStarted());
@@ -84,7 +82,6 @@ export function load() {
   }
 }
 
-// thunk middleware
 export function edit(id, task) {
   return async (dispatch) => {
         const response = await fetch('/api/todos', {

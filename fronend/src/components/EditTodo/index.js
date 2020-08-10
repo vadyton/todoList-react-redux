@@ -12,7 +12,6 @@ function EditTodo({ id, text }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // Edit task function
   async function editTaskFunc(e) {
     dispatch(edit(id, task))
     handleClose();

@@ -6,7 +6,9 @@ const route = express.Router();
 route.get('/api/todos', async (req, res) => {
   console.log('ну и нууууууууууу');
   const todos = await TodosModel.find();
-  res.json(todos);
+  setTimeout(() => {
+    res.json(todos);
+  }, 1000);
 });
 
 route.post('/api/todos', async (req, res) => {
