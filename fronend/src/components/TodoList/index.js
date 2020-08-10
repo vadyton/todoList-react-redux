@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import Todo from '../Todo';
+import { useDispatch } from 'react-redux';
+import { addTask } from '../../Redux/action/todo-action';
 
 function TodoList() {
+  const dispatch = useDispatch();
   const [task, setTask] = useState('');
 
   async function addTodo(event) {
+    console.log(task);
     event.preventDefault();
     const response = await fetch('/api/todos', {
       method: 'POST',

@@ -4,7 +4,7 @@ import todosRoute from './routes/todosRoute.js';
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/TodosMiddle', {
+mongoose.connect('mongodb://localhost:27017/TodoList', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -12,6 +12,6 @@ mongoose.connect('mongodb://localhost:27017/TodosMiddle', {
 
 app.use(express.json());
 
-app.use('/api/todos', todosRoute);
+app.use(todosRoute);
 
 app.listen(process.env.PORT ?? 3001);

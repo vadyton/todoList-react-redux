@@ -1,14 +1,17 @@
 import express from 'express';
-import TodosModel from '../models/todo-model.js';
+import TodosModel from '../models/todo.js';
 
 const route = express.Router();
 
-route.get('/', async (req, res) => {
+route.get('/api/todos', async (req, res) => {
+  console.log('ну и нууууууууууу');
   const todos = await TodosModel.find();
   res.json(todos);
 });
 
-route.post('/', async (req, res) => {
+route.post('/api/todos', async (req, res) => {
+  console.log('ну и нууууууууууу');
+
   const { taskName } = req.body;
   const newTask = new TodosModel({
     taskName,
@@ -23,7 +26,7 @@ route.post('/', async (req, res) => {
   }
 });
 
-route.delete('/', async (req, res) => {
+route.delete('/api/todos', async (req, res) => {
   const { id } = req.body;
   console.log(id);
   try {
@@ -36,7 +39,7 @@ route.delete('/', async (req, res) => {
   }
 });
 
-route.patch('/', async (req, res) => {
+route.patch('/api/todos', async (req, res) => {
   const { id, status, taskName } = req.body;
   try {
     const update = await todosModel.findByIdAndUpdate(
